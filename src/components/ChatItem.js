@@ -1,17 +1,20 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-const ChatItem = ({ avatar, name, message }) => {
+const ChatItem = ({avatar, name, message, onPress, navigation}) => {
     return (
-        <View style={styles.container}>
-            <Image source={{ uri: avatar }} style={styles.avatar} />
-            <View style={styles.textContainer}>
-                <Text style={styles.name}>{name}</Text>
-                <Text style={styles.message}>{message}</Text>
+        <TouchableOpacity onPress={onPress}>
+            <View style={styles.container}>
+                <Image source={{uri: avatar}} style={styles.avatar}/>
+                <View style={styles.textContainer}>
+                    <Text style={styles.name}>{name}</Text>
+                    <Text style={styles.message}>{message}</Text>
+                </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
+
 
 const styles = StyleSheet.create({
     container: {
