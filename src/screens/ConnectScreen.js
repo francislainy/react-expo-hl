@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Connect = () => {
+const ConnectScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Connect</Text>
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Connect;
+export default ConnectScreen;

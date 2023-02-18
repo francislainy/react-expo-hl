@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Live = () => {
+const LiveScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Live</Text>
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Live;
+export default LiveScreen;

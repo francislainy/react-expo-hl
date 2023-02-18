@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const HelloTalk = () => {
+const Code = () => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>HelloTalk</Text>
+            <Text style={styles.title}>Moments</Text>
         </View>
     );
 };
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HelloTalk;
+export default Code;
