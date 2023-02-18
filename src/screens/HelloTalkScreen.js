@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
-import {SearchBar} from 'react-native-elements';
+import React, { useState } from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 import PropTypes from 'prop-types';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import ChatScreen from '../screens/ChatScreen';
 
 import ChatItem from '../components/ChatItem';
@@ -42,7 +42,7 @@ const HelloTalkScreen = () => {
         setFilteredData(newData);
     };
 
-    const renderItem = ({item}) => {
+    const renderItem = ({ item }) => {
         const navigation = useNavigation();
         const onPress = () => {
             navigation.navigate('ChatScreen', { name: item.name });
@@ -64,8 +64,8 @@ const HelloTalkScreen = () => {
                 placeholder="Search for users..."
                 value={search}
                 onChangeText={searchFilterFunction}
-                containerStyle={{backgroundColor: '#fff'}}
-                inputContainerStyle={{backgroundColor: '#f2f2f2'}}
+                containerStyle={{ backgroundColor: '#fff' }}
+                inputContainerStyle={{ backgroundColor: '#f2f2f2' }}
                 platform="android"
             />
             <FlatList
