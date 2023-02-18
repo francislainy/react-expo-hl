@@ -1,5 +1,7 @@
-import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
+import { SearchBar } from 'react-native-elements';
+import PropTypes from 'prop-types';
 import ChatItem from '../components/ChatItem';
 
 const DATA = [
@@ -24,20 +26,44 @@ const DATA = [
 ];
 
 const HelloTalkScreen = () => {
+    const [search, setSearch] = useState('');
+    const [filteredData, setFilteredData] = useState(DATA);
 
+    const searchFilterFunction = (text) => {
+        const newData = DATA.filter((item) => {
+            const itemData = item.name.toUpperCase();
+            const textData = text.toUpperCase();
+            return itemData.includes(textData);
+        });
+        setSearch(text);
+        setFilteredData(newData);
+    };
 
     const renderItem = ({ item }) => (
         <ChatItem avatar={item.avatar} name={item.name} message={item.message} />
     );
 
     return (
-        <FlatList
-            style={styles.container}
-            data={DATA}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-        />
+        <View style={styles.container}>
+            <SearchBar
+                placeholder="Search for users..."
+                value={search}
+                onChangeText={searchFilterFunction}
+                containerStyle={{ backgroundColor: '#fff' }}
+                inputContainerStyle={{ backgroundColor: '#f2f2f2' }}
+                platform="android"
+            />
+            <FlatList
+                data={filteredData}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.id}
+            />
+        </View>
     );
+};
+
+HelloTalkScreen.propTypes = {
+    navigation: PropTypes.object.isRequired,
 };
 
 const styles = StyleSheet.create({
